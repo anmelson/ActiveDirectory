@@ -4,7 +4,7 @@ A project designed to expand working knowledge of Active Directory.
 
 ## Description
 
-The goal of this project is an in depth look into the fucntions and features of Active Directory, along with a lab implementation component.   
+The goal of this project is an in depth look into the functions and features of Active Directory, along with a lab implementation component.   
 
 ## Languages and Utilities Used
 
@@ -12,7 +12,7 @@ The goal of this project is an in depth look into the fucntions and features of 
 
 ## Program Walk-through
 
-### To begin, we take the role of soemone at the Help Desk who has just recieved the following email
+### To begin, we take the role of someone at the Help Desk who has just recieved the following email
 
 ![Received Email](https://i.imgur.com/Cw4b8F4.png)
 
@@ -43,7 +43,7 @@ The goal of this project is an in depth look into the fucntions and features of 
 
 ### Nexy I needed to make a copy of Logon Banner GPO and rename it for the new group to enforce new permissions
 
-!Copy of Logon Banner](https://i.imgur.com/PloFzajl.png)
+![Copy of Logon Banner](https://i.imgur.com/PloFzajl.png)
 
 ### The copy was renamed, and applied to the group I had created earlier
 
@@ -66,16 +66,25 @@ The goal of this project is an in depth look into the fucntions and features of 
 
 ![Updated Password Policies](https://i.imgur.com/niMRLdul.png)
 
-### Adding the RSA TLS key to Wireshark
+### For the last goal I needed to add a computer to the domain
 
-![Adding the RSA Key](https://i.imgur.com/YZNxCyDl.png)
+![Adding the computer](https://i.imgur.com/UnoFvuwl.png)
+![Adding the computer](https://i.imgur.com/uVb5VFMl.png)
 
-### Now that we have applied the key, rdp traffic is visible
+### Success
 
-![RDP traffic shows up](https://i.imgur.com/Q9T6uAsl.png)
+![Success](https://i.imgur.com/Y4euMJRl.png)
 
-### After determing the host that initiated the connection, we reexamined traffic through the filter tcp.port == 3389 to try and find a username. Examing the Ignored Unknown Request packet, we can see it in ASCII
+### And lastly, move the new added computer into the correct OU which we made earlier
 
-![Host Username](https://i.imgur.com/zq7290Il.png)
+![Moved computer to new OU](https://i.imgur.com/aKOmQbkl.png)
 
 ## Conclusion
+
+This Active Directory project provided a deep dive into the key functions and roles AD plays in enterprise settings. From managing users and setting up organizational structures to enforcing stringent security policies, I gained hands-on insights into the multifaceted nature of AD.
+
+Challenges, like aligning specific user permissions and ensuring correct policy applications, emphasized the precision and understanding required in IT administration. It highlighted the strategic importance of AD in ensuring a streamlined and secure organizational workflow.
+
+What resonated the most was seeing AD in action, reinforcing its crucial role in daily IT operations. It's more than just a tool; it's the backbone of many organizational processes, dictating access, security, and functionality.
+
+In summary, this journey was an enlightening venture into the core of IT infrastructure management, strengthening my grasp on the intricacies of Active Directory.
