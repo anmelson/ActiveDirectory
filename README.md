@@ -16,53 +16,55 @@ The goal of this project is an in depth look into the fucntions and features of 
 
 ![Received Email](https://i.imgur.com/Cw4b8F4.png)
 
-### 
+### We were tasked with adding three users to IT using first and last name, first initial.last name for the logon, and a forced password reset
 
-![Searching for Conversations by limiting displayed data](https://i.imgur.com/wDRoD67.png)
+![User Example](https://i.imgur.com/CpYxLkJl.png)
+![Users Added](https://i.imgur.com/Crg5OYyl.png)
 
-### From there, we can see the following requests come through, with the first completed three way handshake happening on HTTP to 95.216.26.30
+### Next, two users with inactive accounts had to be removed.  Using the find command, I searched for and removed the users
 
-![Completed Three Way Handshake](https://i.imgur.com/CooHQN5l.png)
+![Find for Deletion](https://i.imgur.com/eOYVI5Cl.png)
 
-### Next, we determined the timestamp of the first conversation. I used the -tttt switch to make the data more readable:
+### A user had been locked out of their account for too many password attempts, so I found them with the find command and reset their password and unlocked their account
 
-![Timestamp](https://i.imgur.com/T6hyc4p.png)
+![Account Unlock](https://i.imgur.com/rGMY2VSl.png)
 
-### The next goal was to find the DNS request for apache.org and determine the IP address/s of the website.  I filtered the traffic for port 53 (DNS) to make the search easier and found the resulting A record request
+### I needed to create a new Organization Unit for the three users I had created prior
 
-![IP address](https://i.imgur.com/mcjKudT.png)
+![New OU](https://i.imgur.com/tYxuMHOl.png)
 
-### Lastly, I was asked to examine the ASCII code of the packets using the -X switch to find any information about the webserver, such as the name which can be seen here
+### Nested within that OU needed to a be a group with the same name, 'Security Analysts'
 
-![Webserver Info](https://i.imgur.com/DXTSGYql.png)
+![Nested Group](https://i.imgur.com/EEMdQ2Ql.png)
 
-### Moving on to Wireshark, we applied a simple HTTP filter to a pcap file
+### The three users were moved into the new OU, and added to the nested Group
 
-![tcp.port == 80 filter](https://i.imgur.com/Cz9zfMbl.png)
+![Moved Users](https://i.imgur.com/eAvfSDJl.png)
 
-### I was then tasked with following the TCP stream of one of the OK responses and look for JFIF files.
+### Nexy I needed to make a copy of Logon Banner GPO and rename it for the new group to enforce new permissions
 
-![Searching for JFIFs in the TCP Stream](https://i.imgur.com/TcR0dwhl.png)
+!Copy of Logon Banner](https://i.imgur.com/PloFzajl.png)
 
-### Knowing files were transferred, we saved copies of these JPG files.
+### The copy was renamed, and applied to the group I had created earlier
 
-![Saving the JPGs](https://i.imgur.com/coXefesl.png)
+![Applying the GPO](https://i.imgur.com/JrchWkPl.png)
+![Applying the GPO](https://i.imgur.com/TtHuBBal.png)
 
-### Next, we RDPed into another system to run Wireshark on that system to search for malicious activity
+### The new permissions required deny all to any removeable media devices
 
-![RDPing in to run a capture](https://i.imgur.com/hV25xfzl.png)
+![Denying Access to Removeable Media](https://i.imgur.com/fzig5zDl.png)
 
-### The goal was to search the traffic to find the employee responsible, so I followed the tcp stream
+### They required access to the command line to perform their work duties
 
-![TCP Steam Followed](https://i.imgur.com/WxNV1S3l.png)
+![Command Line Access](https://i.imgur.com/JtIdDrDl.png)
 
-### As we can see, a user has been created and added to the administrator account through a host machine
+### I needed to ensure that the Logon display was copied over from Logon Banner, which it was
 
-![User created and given privileges](https://i.imgur.com/ZO2wbDml.png)
+![Logon Display](https://i.imgur.com/FNzyoQ4l.png)
 
-### Our last goal was to decrypt RDP traffic using a provided key and pcap file, so first we checked to see if there was RDP traffic using port 3389, since the rdp protocol is encrypted
+### Finally, this group required specific password policies, so I went in and adjusted those to match the requirements
 
-![Isolating RDP traffic](https://i.imgur.com/GD1VCx3l.png)
+![Updated Password Policies](https://i.imgur.com/niMRLdul.png)
 
 ### Adding the RSA TLS key to Wireshark
 
