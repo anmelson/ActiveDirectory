@@ -41,7 +41,7 @@ The goal of this project is an in depth look into the functions and features of 
 
 ![Moved Users](https://i.imgur.com/eAvfSDJl.png)
 
-### Nexy I needed to make a copy of Logon Banner GPO and rename it for the new group to enforce new permissions
+### Next I needed to make a copy of Logon Banner GPO and rename it for the new group to enforce new permissions
 
 ![Copy of Logon Banner](https://i.imgur.com/PloFzajl.png)
 
